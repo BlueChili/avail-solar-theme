@@ -1,0 +1,89 @@
+form.kaliforms-form-container {
+    input,
+    select {
+        font-size: $font-size-18;
+        padding-left: 0.5rem!important;
+        border-radius: 0!important;
+
+        &.focus-visible {
+            background-color: rgb(155 162 127 / 25%)!important;
+        }
+    }
+
+    select,
+    input[type=date] {
+        margin-bottom: 0!important;
+    }
+
+    .kali-form-field-row {
+        small,
+        .checkbox-label {
+            font-size: $font-size-16;
+            display: block;
+            line-height: 1.4;
+            margin-top: .25rem;
+        }
+
+        .checkbox-label {
+            margin-top: 2rem;
+
+            .kali-required-mark {
+                display: none;
+            }
+
+            input[type=checkbox] {
+                position: absolute;
+                margin-left: 0;
+                cursor: pointer !important;
+                background: $white;
+                outline: 1px solid $black;
+                -webkit-appearance: none;
+                width: 20px;
+                height: 20px;
+
+                &:checked:after {
+                    content: "";
+                    width: 12px;
+                    height: 8px;
+                    position: absolute;
+                    top: 4px;
+                    left: 4px;
+                    border: 2px solid $black;
+                    border-top: 0;
+                    border-right: 0;
+                    background: 0;
+                    opacity: 1;
+                    transform: rotate(-45deg);
+                }
+            }
+
+            a {
+                color: $black;
+                margin-left: 2.25rem;
+                display: flex;
+            }
+        }
+    }
+
+    [type="submit"] {
+        &:hover {
+            
+        }
+    }
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $black!important;
+    font-size: 1rem!important;
+    opacity: 1; /* Firefox */
+}
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $black!important;
+    font-size: 1rem!important;
+}
+  
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $black!important;
+    font-size: 1rem!important;
+}

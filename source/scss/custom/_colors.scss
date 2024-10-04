@@ -1,0 +1,46 @@
+.btn-primary,
+.btn-seconndary {
+    text-decoration: none;
+}
+
+.btn-secondary {
+    color: white;
+
+    &:hover {
+        svg {
+            fill: $body-color!important;
+
+            path {
+                fill: $body-color!important;
+            }
+        }
+    }
+}
+
+#masthead {  
+    &.bg-primary {
+        .main-navigation {
+            .navbar-nav {
+                .nav-link {
+                    color: white;
+                }
+            }
+        }
+
+        .bg-white {
+            .main-navigation {
+                .navbar-nav {
+                    .nav-link {
+                        color: $body-color;
+                    }
+
+                    .highlight {
+                        .nav-link {
+                            color: $white;
+                        }   
+                    }
+                }
+            }
+        }
+    }
+  }

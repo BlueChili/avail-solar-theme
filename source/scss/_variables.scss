@@ -1,0 +1,92 @@
+/*
+* Add any variable overrides to this file
+*/
+
+$primary: #1C3F33;
+$secondary: #26D538;
+$body-color: $primary;
+
+$font-family-sans-serif: 'Urbanist' !default;
+//$font-family-second: '';
+$font-size-14: 0.875rem;
+$font-size-16: 1rem;
+$font-size-18: 1.125rem;
+$font-size-20: 1.25rem;
+$font-size-22: 1.375rem;
+$font-size-24: 1.5rem;
+$font-size-28: 1.75rem;
+$font-size-48: 3rem;
+$font-size-56: 3.5rem;
+$font-size-80: 5rem;
+$font-size-96: 6rem;
+$font-size-base: $font-size-20;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$line-height-base: 1.8 !default;
+
+$headings-font-family: $font-family-sans-serif !default;
+$headings-font-weight: $font-weight-bold;
+//$headings-color: $body-color !default;
+
+$h1-font-size:  fluid-typography(50, 96);
+$h2-font-size:  fluid-typography(26, 56);
+$h3-font-size:  fluid-typography(24, 40);
+$h4-font-size:  fluid-typography(22, 32);
+$h5-font-size:  fluid-typography(20, 28);
+$h6-font-size:  fluid-typography(20, 26);
+$headings-margin-bottom: 2.5rem !default;
+
+$input-btn-font-family: $font-family-sans-serif !default;
+$input-btn-font-size: fluid-typography(18, 20);
+$btn-font-weight: 400 !default;
+$btn-close-color: white !default;
+$btn-close-width: 1rem !default;
+$btn-close-height: $btn-close-width !default;
+$btn-close-padding-x: 0!default;
+$btn-close-padding-y: $btn-close-padding-x !default;
+
+$border-radius: 32px!default;
+$border-radius-sm: $border-radius !default;
+$border-radius-lg: $border-radius !default;
+$border-color: rgba(28, 63, 51, 0.1) !default;
+$card-border-color: $border-color;
+
+$input-btn-padding-y: 1rem !default;
+$input-btn-padding-x: 2rem !default;
+$input-btn-line-height: 1 !default;
+
+$navbar-light-color: black!default;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='butt' stroke-miterlimit='6' stroke-width='1' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-light-toggler-icon-bg-white: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#ffffff' stroke-linecap='butt' stroke-miterlimit='6' stroke-width='1' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$btn-close-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/></svg>") !default;
+
+$transition-fade:   opacity .25s linear !default;
+
+// Container padding
+
+$container-padding-x: 0 !default;
+
+//CUSTOM SPACING UP TO 10
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: calc($spacer / 4),
+  2: calc($spacer / 2),
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: ($spacer * 4.5),  //added
+  7: ($spacer * 6), //added
+  8: ($spacer * 8.5), //added
+  9: 10rem,
+  10: 15rem,
+) !default;
+
+$cf-pl-xxl: calc((100vw - 1320px)/2);
+$cf-pl-xl: calc((100vw - 1200px)/2 + 1.75rem);
+$cf-pl-lg: calc((100vw - 1020px)/2 + 1.75rem);
+$cf-pl-md: calc((100vw - 760px)/2 + 2rem);
+$cf-pl-sm: calc((100vw - 580px)/2 + 2rem);
+
+// Options
+$enable-negative-margins:  true!default;

@@ -1,0 +1,52 @@
+{
+    "key": "group_63de4d4865c2c",
+    "title": "Block Setting: background",
+    "fields": [
+        {
+            "key": "field_63de4d4877dc6",
+            "label": "Background",
+            "name": "block_bg_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "transparent": "Standard",
+                "bg-primary": "Dark Green",
+                "bg-secondary": "Light Green"
+            },
+            "default_value": "transparent",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1680080203
+}

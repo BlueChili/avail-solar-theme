@@ -1,0 +1,20 @@
+.font-weight-bold {
+     font-weight: 700;
+}
+
+@for $index from 1 through 6 {
+     h#{$index},
+     .h#{$index} {
+          strong {
+               color: $secondary;
+               transition: color .5s linear;
+          }
+     }
+}
+
+@for $index from 3 through 6 {
+     h#{$index},
+     .h#{$index} {
+          font-weight: 600;
+     }
+}

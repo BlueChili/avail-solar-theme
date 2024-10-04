@@ -1,0 +1,52 @@
+.login #login {
+	width: 100%;
+	max-width: 400px;
+	padding: 16% 2rem 0;
+}
+#login h1 {
+	background-image: url(../assets/images/logo.svg);
+	background-size: 126px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #3c434a;
+    height: 45px;
+    font-weight: 400;
+    margin: 0 auto 30px;
+    padding: 0;
+    text-decoration: none;
+    width: auto;
+    padding-bottom: 2.5rem;
+    display: block;
+    position: relative;
+}
+#login h1 a, .login h1 a {
+	display: none;
+}
+#login h1:before {
+	content: 'created by';
+    position: absolute;
+    font-size: .55rem;
+    top: -25px;
+    left: calc(50% - 28px);
+    text-transform: uppercase;
+}
+#login h1:after {
+	font-size: .85rem;
+	position: relative;
+    top: 50px;
+}
+#login form {
+	border: none;
+	box-shadow: none;
+}
+#login form input {
+	border-radius: 0;
+}
+#login form #wp-submit {
+	border-radius: 0;
+	background: #000;
+	border-color: #000;
+}
+.login.login-password-protected label {
+	width: 100%;
+}

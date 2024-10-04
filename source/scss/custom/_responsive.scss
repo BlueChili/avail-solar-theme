@@ -1,0 +1,11 @@
+@include media-breakpoint-down(lg) {
+    .container, 
+    .container-fluid {
+        --bs-gutter-x: 2rem;
+        --bs-gutter-y: 2rem;
+    }
+
+    body {
+        --bs-body-font-size: $font-size-18;
+    }
+}

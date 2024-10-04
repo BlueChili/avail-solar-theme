@@ -1,0 +1,63 @@
+@import "custom/fontfamily";
+//@import "editor-style/fontfamily";
+
+.editor-styles-wrapper {
+
+  @import "bootstrap";
+  @import "custom/custom";
+  @import "editor-style/colors";
+  @import "editor-style/font";
+
+  font-family: $font-family-sans-serif!important;
+
+  .gp-block {
+    p {
+      line-height: 1.2;
+    }
+
+    .card {
+      max-width: initial;
+      padding: 0;
+    }
+  }
+  
+  /* Main column width */
+  .wp-block {
+    max-width: 100%;
+  }
+
+  /* Width of "wide" blocks */
+  .wp-block[data-align="wide"] {
+    max-width: 100%;
+  }
+
+  /* Width of "full-wide" blocks */
+  .wp-block[data-align="full"] {
+    max-width: none;
+  }
+
+  /*Remove lazyload fadein*/
+  .lazyload,
+  .lazyloading {
+    opacity: 1;
+  }
+
+  //Stops object-fit breaking
+  img.imagecontainer-img-cover {
+    height: 100%;
+  }
+
+  //Undo sticky footer
+  html, body {
+    height: inherit;
+  }
+
+  .site {
+    min-height: 0;
+    height: inherit !important;
+  }
+
+  .kaliforms-form-container {
+    opacity: 1!important;
+  }
+}

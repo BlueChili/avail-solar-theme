@@ -1,0 +1,45 @@
+#wpwrap #toplevel_page_acf-site-options, #wpwrap #menu-posts, #wpwrap #menu-appearance {
+	border-top: 1px solid #fff;
+	margin-top: 1rem;
+	padding-top: 1rem;
+}
+#toplevel_page_acf-site-options:before {
+	content: 'Settings';
+	text-transform: uppercase;
+	font-size: .7rem;
+	color: #fff;
+	padding: 0 .5rem;
+    line-height: 3;
+}
+
+#menu-posts:before {
+	content: 'Content';
+	text-transform: uppercase;
+	font-size: .7rem;
+	color: #fff;
+	padding: 0 .5rem;
+    line-height: 3;
+}
+
+#menu-appearance:before {
+	content: 'System';
+	text-transform: uppercase;
+	font-size: .7rem;
+	color: #fff;
+	padding: 0 .5rem;
+    line-height: 3;
+}
+
+#footer-thankyou {
+    display: none;
+}
+
+#wpfooter #footer-left:before {
+	content: 'Created by WUNSCH+MAIKIND';
+}
+
+@media (min-width: 782px) {
+	#editor .interface-interface-skeleton__sidebar .interface-complementary-area {
+		width: 450px;
+	}
+}

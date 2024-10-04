@@ -1,0 +1,24 @@
+.single-post {
+    article {
+        
+        .entry-meta {
+            font-size: 1rem;
+            line-height: 1.4;
+        }        
+
+        .sharing-buttons {
+            .alert-copy {
+                position: absolute;
+                opacity: 0;
+                transition: opacity .5s;
+                top: 2rem;
+                right: 0;
+                font-size: $font-size-14;
+    
+                &.show {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.nav-container {
+    border-bottom: 1px solid rgba(28, 63, 51, 0.1);
+    border-radius: 0;
+    transition: border-radius .5s linear;
+}
+
+.action-bar {
+    font-size: $font-size-16;
+    height: 0;
+    transition: all .5s linear;
+
+    @include media-breakpoint-down(md) {
+        line-height: 1.2;
+        font-size: .85rem;
+    }
+
+    .close-bar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+
+        @include media-breakpoint-down(lg) {
+            right: 2rem;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    &.text-white {
+        a {
+            color: white;
+        }
+    }
+}
+
+.show-activebar {
+    .action-bar {
+        height: 44px;
+
+        @include media-breakpoint-down(md) {
+            height: 60px;
+        }
+    }
+
+    .nav-container {
+        border-radius: 32px 32px 0 0;
+    }
+}

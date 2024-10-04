@@ -1,0 +1,27 @@
+@use 'sass:math';
+
+@function fluid-typography($min-font-size-px, $max-font-size-px: 0, $min-screen-size-px: 390, $max-screen-size-px: 1300, $body-font-size-px: 16, $unit: 'rem') {
+  $min-font-size-rem: math.div(1, $body-font-size-px) * $min-font-size-px;
+
+  @if $max-font-size-px == 0 {
+    @return #{$min-font-size-rem}#{$unit};
+  } @else {
+    $max-font-size-rem: math.div(1, $body-font-size-px) * $max-font-size-px;
+
+    $vw-coefficient: math.div(1600 * ($max-font-size-rem - $min-font-size-rem), $max-screen-size-px - $min-screen-size-px);
+    $rem-coefficient: $min-font-size-rem - math.div($min-screen-size-px * ($max-font-size-rem - $min-font-size-rem), $max-screen-size-px - $min-screen-size-px);
+  
+    $vw-coefficient-cut: math.div(round(10 * $vw-coefficient), 10);
+    $rem-coefficient-cut: math.div(round(10 * $rem-coefficient), 10);
+    
+    $scaler-operator: '+';
+    
+    @if $rem-coefficient-cut < 0 {
+      $scaler-operator: '-';
+    }
+    
+    $scaler: #{$vw-coefficient-cut}vw #{$scaler-operator} #{abs($rem-coefficient-cut)}#{$unit};
+  
+    @return clamp(#{$min-font-size-rem}#{$unit}, calc(#{$scaler}), #{$max-font-size-rem}#{$unit});
+  }
+}
