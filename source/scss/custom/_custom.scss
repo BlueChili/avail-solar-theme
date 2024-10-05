@@ -12,3 +12,33 @@
 @import "animations";
 @import "forms";
 @import "responsive";
+
+.post.type-post {
+    padding-top: 156px;
+    @media screen and (max-width: 1200px) {
+        padding-top: 174px;
+    }
+    @media screen and (max-width: 992px) {
+        padding-top: 132px;
+    }
+    @media screen and (max-width: 768px) {
+        padding-top: 136px;
+    }
+    .entry-meta,
+    .entry-meta a,
+    .entry-title {
+        color:  white;
+    }
+
+    .entry-image {
+        max-height: 50vh;
+        & .imagecontainer {
+            height: 100%;
+        }
+        & img.img-fluid {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
