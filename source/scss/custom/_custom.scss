@@ -24,10 +24,12 @@
     @media screen and (max-width: 768px) {
         padding-top: 136px;
     }
-    .entry-meta,
-    .entry-meta a,
-    .entry-title {
-        color:  white;
+    &:has(.entry-header .entry-image) {
+        .entry-meta,
+        .entry-meta a,
+        .entry-title {
+            color:  white;
+        }
     }
 
     .entry-image {
