@@ -59,6 +59,7 @@ endif;
     </header>
 
     <div class="container pt-6 pt-md-8 pt-xl-9">
+    <?php avasol_toc() ?>
         <div class="entry-content">
 <?php
 the_content(sprintf(

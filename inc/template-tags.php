@@ -7,6 +7,65 @@
  * @package avasol
  */
 
+if ( ! function_exists( 'avasol_toc' ) ) :
+function avasol_toc() {
+    $content = the_content();
+    $matches = [];
+    preg_match_all('/<h([1-6])>(.*?)<\/h[1-6]>/', $content, $matches, PREG_SET_ORDER);
+
+    if (!$matches) {
+        return;
+    }
+
+    $toc = '<div class="toc"><nav id="TableOfContents"><ul>';
+    foreach ($matches as $match) {
+        $heading_tag = $match[1];
+        $heading_text = $match[2];
+
+        $anchor = sanitize_title($heading_text);
+
+        $toc .= '<li><a href="#' . $anchor . '">' . $heading_text . '</a>';
+
+        if ($heading_tag < 6) {
+            $toc .= generate_sub_headings($matches, $heading_tag, $anchor);
+        }
+
+        $toc .= '</li>';
+
+        $content = str_replace($match[0], '<h' . $heading_tag . ' id="' . $anchor . '">' . $heading_text . '</h' . $heading_tag . '>', $content);
+    }
+    $toc .= '</ul></nav></div>';
+
+    return $toc;
+}
+
+function generate_sub_headings($matches, $parent_level, $parent_anchor) {
+    $sub_toc = '';
+    $sub_level = $parent_level + 1;
+
+    foreach ($matches as $sub_match) {
+        $sub_heading_tag = $sub_match[1];
+        $sub_heading_text = $sub_match[2];
+
+        if ($sub_heading_tag == $sub_level) {
+            $sub_anchor = sanitize_title($sub_heading_text);
+            $sub_toc .= '<ul><li><a href="#' . $sub_anchor . '">' . $sub_heading_text . '</a>';
+
+            if ($sub_heading_tag < 6) {
+                $sub_toc .= generate_sub_headings($matches, $sub_heading_tag, $sub_anchor);
+            }
+
+            $sub_toc .= '</li></ul>';
+        }
+    }
+
+    return $sub_toc;
+}
+
+// Hook into 'the_content' filter to apply the TOC to post content
+//add_filter('the_content', 'generate_hugo_style_table_of_contents');
+endif;
+
 if ( ! function_exists( 'avasol_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
