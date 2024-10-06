@@ -13,53 +13,58 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
     <?php // get_template_part( 'template-parts/schema/NewsArticle' ); ?>
     <header class="entry-header">
-<?php
-if (has_post_thumbnail()):
-    $img_id = get_post_thumbnail_id();
-    ?>
-            <div class="entry-image vh-100 mh-50">
-<div class="imagecontainer">
-<?php echo avasol_lazy_image($img_id, 'medium_large', 'img-fluid') ?>
-        <div class="container position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center flex-column">
-<?php
-    the_title('<h1 class="entry-title">', '</h1>');
-    if ('post' === get_post_type()):
+    <?php
+    if (is_singular() && has_post_thumbnail()):
+        $img_id = get_post_thumbnail_id();
         ?>
-            <div class="entry-meta">
-<?php
-        avasol_posted_on();
-        avasol_posted_by();
-        ?>
+        <div class="entry-image vh-100 mh-50">
+            <div class="imagecontainer">
+                <?php echo avasol_lazy_image($img_id, 'medium_large', 'img-fluid') ?>
+                <div class="container position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-center flex-column">
+                <?php
+                    the_title('<h1 class="entry-title">', '</h1>');
+                    if ('post' === get_post_type()):
+                    ?>
+                    <div class="entry-meta">
+                    <?php
+                        avasol_posted_on();
+                        avasol_posted_by();
+                        ?>
+                    </div>
+                    <?php endif; ?>
+                </div>
             </div>
-        <?php endif; ?>
         </div>
-            </div></div>
-    <?php else: ?>
-    <div class="container">
-<?php
-    if (is_singular()):
-        the_title('<h1 class="entry-title">', '</h1>');
-    else:
-        the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
-    endif;
 
-    if ('post' === get_post_type()):
-        ?>
-            <div class="entry-meta">
-<?php
-        avasol_posted_on();
-        avasol_posted_by();
-        ?>
-            </div>
-        <?php endif; ?>
-    </div>
-<?php
-endif;
-?>
+    <?php else: ?>
+
+    <div class="container">
+        <?php
+            if (is_singular()):
+                the_title('<h1 class="entry-title">', '</h1>');
+            else:
+                the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
+            endif;
+
+            if ('post' === get_post_type()):
+                ?>
+                <div class="entry-meta">
+                <?php
+                    avasol_posted_on();
+                    avasol_posted_by();
+                    ?>
+                </div>
+                <?php endif; ?>
+        </div>
+    <?php
+    endif;
+    if (is_singular()) {
+        add_filter('the_content', 'avasol_toc');
+    } 
+    ?>
     </header>
 
-    <div class="container pt-6 pt-md-8 pt-xl-9">
-    <?php avasol_toc() ?>
+    <div class="container pt-0">
         <div class="entry-content">
 <?php
 the_content(sprintf(

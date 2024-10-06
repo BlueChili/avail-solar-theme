@@ -1,0 +1,51 @@
+.toc {
+    transform: translateY(3.5rem);
+    @media screen and (max-width: 992px) {
+        transform: translate3d(8px, 2rem, 0);
+    }
+    #TableOfContents {
+        li {
+            position: relative;
+            list-style: decimal;
+            padding-left: 1rem;
+            opacity: 0.5;
+            transition: opacity 0.267s ease-out;
+            &:after {
+                content: "";
+                position: absolute;
+                left: -2.5rem;
+                top: 0;
+                width: 4px;
+                height: 100%;
+                background-color: $secondary;
+                opacity: 0.6;
+                transition: opacity 0.267s ease-out;
+            }
+            &:hover {
+                opacity: 1;
+                &:after {
+                    opacity: 1;
+                }
+            }
+            a {
+                display: inline-block;
+                color: $primary;
+                font-weight: 700;
+                text-decoration: none;
+                padding-bottom: 0.15rem;
+            }
+        }
+    }
+}
+
+article .toc {
+    #TableOfContents {
+        li {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.post.post-type .toc {
+    margin-bottom: -4rem;
+}

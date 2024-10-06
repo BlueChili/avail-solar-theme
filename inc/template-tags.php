@@ -8,8 +8,7 @@
  */
 
 if ( ! function_exists( 'avasol_toc' ) ) :
-function avasol_toc() {
-    $content = the_content();
+function avasol_toc($content) {
     $matches = [];
     preg_match_all('/<h([1-6])>(.*?)<\/h[1-6]>/', $content, $matches, PREG_SET_ORDER);
 
@@ -36,7 +35,7 @@ function avasol_toc() {
     }
     $toc .= '</ul></nav></div>';
 
-    return $toc;
+    return $toc . $content;
 }
 
 function generate_sub_headings($matches, $parent_level, $parent_anchor) {
