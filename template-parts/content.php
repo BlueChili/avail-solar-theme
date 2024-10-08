@@ -41,7 +41,7 @@
     <div class="container">
         <?php
             if (is_singular()):
-                the_title('<h1 class="entry-title">', '</h1>');
+                the_title('<h1 class="entry-title pt-6">', '</h1>');
             else:
                 the_title('<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>');
             endif;
@@ -90,7 +90,7 @@ wp_link_pages(array(
 
     <footer class="entry-footer">
         <div class="container">
-        <?php avasol_entry_footer(); ?>
-</div>
+            <?php avasol_entry_footer(); ?>
+        </div>
     </footer>
 </article>

@@ -16,17 +16,19 @@ return ;
 
 <article id="post-<?php the_ID(); ?>" class="article-summary">
     <header class="entry-header">
-    <?php
-        if (has_post_thumbnail()):
-        $img_id = get_post_thumbnail_id();?>
-        <div class="summary-image">
-            <?php echo avasol_lazy_image($img_id, 'medium_large', 'img-fluid') ?>
-        </div>
-    <?php else : ?>
-        <div class="summary-image summary-image-no-featured">
-                <img src="<?= esc_url( wp_get_attachment_url(1385) ); ?>" width="94" height="75" class="custom-logo" alt="<?php bloginfo( 'name' ); ?>">
-        </div>
-    <?php endif; ?>
+        <a href="<?php the_permalink() ?>" rel="bookmark">
+        <?php
+            if (has_post_thumbnail()):
+            $img_id = get_post_thumbnail_id();?>
+            <div class="summary-image">
+                <?php echo avasol_lazy_image($img_id, 'medium_large', 'img-fluid') ?>
+            </div>
+        <?php else : ?>
+            <div class="summary-image summary-image-no-featured">
+                    <img src="<?= esc_url( wp_get_attachment_url(1385) ); ?>" width="94" height="75" class="custom-logo" alt="<?php bloginfo( 'name' ); ?>">
+            </div>
+        <?php endif; ?>
+        </a>
 
         <?php the_title('<h2 class="entry-title summary-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></h2>'); ?>
     </header>

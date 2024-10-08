@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="primary" class="content-area">
-    <div class="container pt-10">
+    <div class="container pt-10 pb-7">
         <?php if ( have_posts() ) : ?>
 
             <header class="page-header">
