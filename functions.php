@@ -429,3 +429,8 @@ function filter_products() {
 }
 add_action('wp_ajax_filter_products', 'filter_products');
 add_action('wp_ajax_nopriv_filter_products', 'filter_products');
+
+function my_theme_unrestrict_blocks( $allowed_blocks, $post ) {
+    return true;
+}
+add_filter( 'allowed_block_types_all', 'my_theme_unrestrict_blocks', 10, 2 );
