@@ -16,15 +16,15 @@
 @import "article_summary";
 
 .post.type-post {
-    padding-top: 156px;
+    padding-top: 120px;
     @media screen and (max-width: 1200px) {
-        padding-top: 174px;
+        padding-top: 138px;
     }
     @media screen and (max-width: 992px) {
-        padding-top: 132px;
+        padding-top: 103px;
     }
     @media screen and (max-width: 768px) {
-        padding-top: 136px;
+        padding-top: 108px;
     }
     &:has(.entry-header .entry-image) {
         .entry-meta,
