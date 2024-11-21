@@ -25,7 +25,7 @@ function avasol_toc($content) {
 
         $toc .= '<li><a href="#' . $anchor . '">' . $heading_text . '</a>';
 
-        if ($heading_tag < 6) {
+        if ($heading_tag < 3) {
             $toc .= generate_sub_headings($matches, $heading_tag, $anchor);
         }
 
