@@ -47,7 +47,7 @@
     }
 
     .entry-footer {
-        :first-child(.container) {
+        & div:first-child {
             text-align: center;
         }
         img {
