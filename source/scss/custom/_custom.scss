@@ -30,7 +30,7 @@
         .entry-meta,
         .entry-meta a,
         .entry-title {
-            color:  white;
+            color: white;
         }
     }
 
@@ -43,6 +43,93 @@
             height: 100%;
             width: 100%;
             object-fit: cover;
+        }
+    }
+
+    .entry-footer {
+        .container {
+            text-align: center;
+        }
+        img {
+            width: 4rem;
+            height: 4rem;
+            object-fit: contain;
+            border-radius: 8rem;
+        }
+        .post-author {
+            text-align: center;
+            position: relative;
+            h4 {
+                font-size: clamp(1.125rem, calc(1.1vw + 1.1rem), 1.5rem);
+                margin-bottom: 0;
+                padding-bottom: 0.25rem;
+                text-align: center;
+                cursor: pointer;
+                user-select: none;
+                label {
+                    cursor: pointer;
+                }
+            }
+            #author-description {
+                display: none;
+            }
+            &-description-content {
+                display: none;
+                width: clamp(280px, 25vw, 500px);
+                position: absolute;
+                top: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 0.5rem 0.75rem;
+                box-shadow: 0 2px 4px hsla(140deg, 50%, 10%, 0.8);
+                border-radius: 8px;
+                z-index: 1;
+                background: white;
+                p {
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 8;
+                    line-clamp: 8;
+                    overflow: hidden;
+                    line-height: 1.375;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                }
+            }
+            &-position {
+                text-align: center;
+                font-size: 1.125rem;
+                line-height: 1;
+            }
+            &-name {
+                background: none;
+                border: none;
+                outline: none;
+            }
+
+            @media (hover: hover) {
+                &:has(h4:hover),
+                &:has(.post-author-position:hover) {
+                    .post-author-description-content {
+                        display: block;
+                    }
+                }
+                &:has(.post-author-description-content:hover) {
+                    .post-author-description-content {
+                        display: block;
+                    }
+                }
+                // .post-author-description-content:focus-within {
+                //     display: block;
+                // }
+            }
+            @media (hover: none) and (pointer: coarse) {
+                &:has(#author-description:checked) {
+                    .post-author-description-content {
+                        display: block;
+                    }
+                }
+            }
         }
     }
 }

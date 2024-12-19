@@ -430,6 +430,90 @@ function filter_products() {
 add_action('wp_ajax_filter_products', 'filter_products');
 add_action('wp_ajax_nopriv_filter_products', 'filter_products');
 
+function register_author_post_type() {
+    $labels = array(
+        'name'               => 'Authors',
+        'singular_name'      => 'Author',
+        'menu_name'          => 'Authors',
+        'name_admin_bar'     => 'Author',
+        'add_new'            => 'Add New',
+        'add_new_item'       => 'Add New Author',
+        'new_item'           => 'New Author',
+        'edit_item'          => 'Edit Author',
+        'view_item'          => 'View Author',
+        'all_items'          => 'All Authors',
+        'search_items'       => 'Search Authors',
+        'not_found'          => 'No authors found.',
+        'not_found_in_trash' => 'No authors found in Trash.',
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => false,
+        'show_in_menu'       => true,
+        'supports'           => array('title', 'editor', 'thumbnail', 'custom-fields'),
+        'rewrite'            => array('slug' => 'authors'),
+    );
+
+    register_post_type('author', $args);
+}
+add_action('init', 'register_author_post_type');
+
+function add_author_meta_box() {
+    add_meta_box(
+        'post_author_meta_box',
+        'Select Author',
+        'render_author_meta_box',
+        'post',
+        'side',
+        'default'
+    );
+}
+add_action('add_meta_boxes', 'add_author_meta_box');
+
+function render_author_meta_box($post) {
+    $selected_author = get_post_meta($post->ID, '_post_author_id', true);
+
+    $authors = get_posts(array(
+        'post_type' => 'author',
+        'posts_per_page' => -1,
+        'orderby' => 'title',
+        'order' => 'ASC',
+    ));
+
+    echo '<select name="post_author_id" id="post_author_id">';
+    echo '<option value="">Select an Author</option>';
+
+    foreach ($authors as $author) {
+        echo '<option value="' . esc_attr($author->ID) . '"' . selected($selected_author, $author->ID, false) . '>';
+        echo esc_html($author->post_title);
+        echo '</option>';
+    }
+
+    echo '</select>';
+}
+
+function save_post_author_meta($post_id) {
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+
+    if (!isset($_POST['post_author_id'])) {
+        return;
+    }
+
+    $author_id = sanitize_text_field($_POST['post_author_id']);
+    if ($author_id) {
+        update_post_meta($post_id, '_post_author_id', $author_id);
+    } else {
+        delete_post_meta($post_id, '_post_author_id');
+    }
+}
+add_action('save_post', 'save_post_author_meta');
+
+
+
 function my_theme_unrestrict_blocks( $allowed_blocks, $post ) {
     return true;
 }
