@@ -14,6 +14,8 @@
     <?php // get_template_part( 'template-parts/schema/NewsArticle' ); ?>
     <header class="entry-header">
     <?php
+    $author_id = get_post_meta(get_the_ID(), '_post_author_id', true);
+
     if (is_singular() && has_post_thumbnail()):
         $img_id = get_post_thumbnail_id();
         ?>
@@ -51,7 +53,13 @@
                 <div class="entry-meta">
                 <?php
                     avasol_posted_on();
-                    avasol_posted_by();
+                    if ($author_id) {
+                        echo '<span class="byline"> by <span class="author vcard">'
+                                . get_the_title($author_id)
+                                . '</span></span>';
+                    } else {
+                        avasol_posted_by();
+                    };
                     ?>
                 </div>
                 <?php endif; ?>
@@ -91,11 +99,9 @@ wp_link_pages(array(
     <footer class="entry-footer">
         <div class="container">
             <?php
-            $author_id = get_post_meta(get_the_ID(), '_post_author_id', true);
-
             if ($author_id) {
-                $author_name = get_the_title($author_id);
                 $author_link = get_permalink($author_id);
+                $author_name = get_the_title($author_id);
                 $author_content = get_post_field('post_content', $author_id);
                 $author_position = get_post_field('author_position', $author_id);
                 $author_image = get_the_post_thumbnail($author_id, 'thumbnail'); // Assuming authors have featured images
