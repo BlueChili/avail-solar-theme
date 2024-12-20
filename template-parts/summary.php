@@ -36,8 +36,15 @@ return ;
     <div class="container pt-0">
         <div class="entry-meta summary-meta">
         <?php
+            $author_id = get_post_meta(get_the_ID(), '_post_author_id', true);
             avasol_posted_on();
-            avasol_posted_by();
+            if ($author_id) {
+                echo '<span class="byline"> by <span class="author vcard">'
+                        . get_the_title($author_id)
+                        . '</span></span>';
+            } else {
+                avasol_posted_by();
+            };
             ?>
         </div>
 
