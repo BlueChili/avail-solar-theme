@@ -42,9 +42,12 @@ return ;
                 echo '<span class="byline"> by <span class="author vcard">'
                         . get_the_title($author_id)
                         . '</span></span>';
-            } else {
+            } 
+            /*
+            else {
                 avasol_posted_by();
             };
+             */
             ?>
         </div>
 
