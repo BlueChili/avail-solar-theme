@@ -30,7 +30,13 @@
                     <div class="entry-meta">
                     <?php
                         avasol_posted_on();
-                        avasol_posted_by();
+                        if ($author_id) {
+                            echo '<span class="byline"> by <span class="author vcard">'
+                                    . get_the_title($author_id)
+                                    . '</span></span>';
+                        } else {
+                            avasol_posted_by();
+                        };
                         ?>
                     </div>
                     <?php endif; ?>
